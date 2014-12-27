@@ -1,0 +1,11 @@
+{
+  "namespace": "io.github.lukaszbudnik.avro.model",
+  "type": "record",
+  "name": "TestCaseV1",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.idea/
+build/
+.gradle/
+.DS_Store
+avro-evolutions.iml
+gradle/
+gradlew
+gradlew.bat
+

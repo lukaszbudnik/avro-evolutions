@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.commercehub.gradle.plugin:gradle-avro-plugin:0.3.4'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'com.commercehub.gradle.plugin.avro'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+ext {
+    avroSource = "src/main/avro"
+    avroDest = "build/generated-main-avro-java"
+}
+
+repositories {
+    mavenCentral()
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+dependencies {
+    compile 'org.apache.avro:avro:1.7.7'
+
+    testCompile 'junit:junit:4.+'
+}
+
+avro {
+    stringType = "string"
+    encoding = "UTF-8"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir avroDest
+        }
+        resources {
+            srcDir avroSource
+        }
+    }
+}
