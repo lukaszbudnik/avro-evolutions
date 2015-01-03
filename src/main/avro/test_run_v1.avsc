@@ -8,6 +8,10 @@
       "type": "string"
     },
     {
+      "name": "concurrencyLevel",
+      "type": "int"
+    },
+    {
       "name": "testCases",
       "type": {
         "type": "array",

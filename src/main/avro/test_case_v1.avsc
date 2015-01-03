@@ -6,6 +6,10 @@
     {
       "name": "name",
       "type": "string"
+    },
+    {
+      "name": "content",
+      "type": "bytes"
     }
   ]
 }
